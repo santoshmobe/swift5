@@ -2,6 +2,15 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:4. Generics.error-handling.Subscripting.playground">
+   </FileRef>
+   <FileRef
+      location = "group:3-Functions-class-structs-protocol.playground">
+   </FileRef>
+   <FileRef
+      location = "group:2- Chapter-2.playground">
+   </FileRef>
+   <FileRef
       location = "group:../../Desktop/masteringSwift/1-Getting-Started.playground">
    </FileRef>
 </Workspace>
