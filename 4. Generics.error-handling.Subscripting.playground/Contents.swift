@@ -55,12 +55,60 @@ extension List: Equatable where T: Equatable {
         }
 //        “This function will loop through two sequences, in our case arrays, simultaneously and create pairs (e1 and e2) that we can compare.”
 //
-//        Excerpt From: Jon Hoffman. “Mastering Swift 5.” Apple Books. 
+//        Excerpt From: Jon Hoffman. “Mastering Swift 5.” Apple Books.
         for (e1, e2) in zip(l1.items, l2.items) {
             if e1 != e2 {
                 return false
             }
         }
         return true
+    }
+}
+
+// AssiciatedType
+protocol QueueProtocol {
+    associatedtype QueueType: Hashable
+    mutating func add(item: QueueType)
+    mutating func getItem() -> QueueType?
+    func count() -> Int
+}
+
+class IntQueue: QueueProtocol {
+    var items = [Int]()
+    
+    func add(item: Int) {
+        items.append(item)
+    }
+    
+    func getItem() -> Int? {
+        return items.count > 0 ? items.remove(at: 0) : nil
+    }
+    
+    func count() -> Int {
+        return items.count
+    }
+}
+
+var intQ = IntQueue()
+intQ.add(item: 2)
+intQ.add(item: 4)
+print(intQ.getItem()!)
+intQ.add(item: 6)
+
+// In generic way
+
+class GenericQueue<T>: QueueProtocol where T: Hashable {
+    var items = [T]()
+    
+    func add(item: T) {
+        items.append(item)
+    }
+    
+    func getItem() -> T? {
+        return items.count > 0 ? items.remove(at: 0) : nil
+    }
+    
+    func count() -> Int {
+        return items.count
     }
 }
